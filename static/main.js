@@ -1,11 +1,11 @@
-$(function() {
-	var canvas = $('#canvas')[0];
-	canvas.width = $(window).width();
-	canvas.height = $(window).height();
+window.addEventListener('DOMContentLoaded', function(){
+	var canvas = document.getElementById('canvas');
+	canvas.width = document.documentElement.offsetWidth;
+	canvas.height = document.documentElement.offsetHeight;
 	var ctx = canvas.getContext('2d');
-	$(window).on('resize', function() {
-		canvas.width = $(window).width();
-		canvas.height = $(window).height();
+	window.addEventListener('resize', function(){
+		canvas.width = document.documentElement.offsetWidth;
+		canvas.height = document.documentElement.offsetHeight;
 		ctx.fillStyle = '#000003';
 		ctx.fillRect(0, 0, canvas.width, canvas.height);
 		center = { x: canvas.width / 2, y: canvas.height / 2 };
@@ -49,8 +49,8 @@ $(function() {
 		listFire.push(fire);
 		playLaunchSound();
 	}
-	var listExpSound = $('audio.exp');
-	var listLaunchSound = $('audio.launch');
+	var listExpSound = document.querySelectorAll('audio.exp');
+	var listLaunchSound = document.querySelectorAll('audio.launch');
 	var textString = 'happylunarnewyear2020';
 	var textMatrix = [
 		4.5, 0, 5.5, 0, 6.5, 0, 7.5, 0, 8.5, 0,
@@ -808,4 +808,4 @@ $(function() {
 		}
 	}
 
-})
+});
