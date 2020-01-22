@@ -6,20 +6,15 @@ set -e
 # npm run build
 # cd ./dist/
 
-git init
+git branch -D gh-pages
+git checkout --orphan gh-pages
+
 git config user.name "imjeen" 
 git config user.email "imjeen@sina.com"
 git add -A
 git commit -m 'deploy'
 
-# if you are deploying to a custom domain
-# echo 'www.example.com' > CNAME
-
-# if you are deploying to https://<USERNAME>.github.io
-# git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
-
-# if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:imjeen/fireworks.git master:gh-pages
+git push -f git@github.com:imjeen/fireworks.git gh-pages:gh-pages
 git log --oneline -20
 
-cd -
+git checkout master
