@@ -3,9 +3,8 @@
 # abort on errors
 set -e
 
-npm run build
-
-cd ./dist/
+# npm run build
+# cd ./dist/
 
 git init
 git config user.name "imjeen" 
@@ -20,7 +19,7 @@ git commit -m 'deploy'
 # git push -f git@github.com:<USERNAME>/<USERNAME>.github.io.git master
 
 # if you are deploying to https://<USERNAME>.github.io/<REPO>
-git push -f git@github.com:imjeen/vue-h5.git master:gh-pages
+git push -f git@github.com:imjeen/fireworks.git master:gh-pages
 git log --oneline -20
 
 cd -
