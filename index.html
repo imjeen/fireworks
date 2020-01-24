@@ -1,86 +1,123 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>Fireworks</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <meta name="format-detection" content="telephone=no" />
-  <style>
-    html:root {
-      /* prettier-ignore */
-      font-size: 50PX;
-      font-size: 13.33333333vw;
-    }
-    @media screen and (min-width: 750px) {
-        html:root {
-            /* prettier-ignore */
-            font-size: 100PX;
-        }
-    }
-    @media screen and (orientation: landscape) and (min-width: 750px) {
-      html:root {
-          /* prettier-ignore */
-          font-size: 75PX;
-      }
-    }
-    html, body{ width: 100%;height: 100%;padding: 0}
-   
-    body {
-      font-size: 16px;
-      line-height: 1.5;
-      /* prettier-ignore */
-      max-width: 1200PX;
-      margin: 0 auto;
-      font-family: 'PingFang SC', 'Helvetica Neue', 'Helvetica', 'Microsoft YaHei', 'STHeitiSC-Light', 'Arial', 'hiragino sans gb', tahoma, sans-serif;
-    }
-    #canvas{
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-  </style>
-</head>
-<body>
-<canvas id="canvas"></canvas>
-<div style="display: none;">
-  <audio class="exp" src="./static/audio/exp1.mp3" controls="controls"></audio>
-  <audio class="exp" src="./static/audio/exp1.mp3" controls="controls"></audio>
-  <audio class="exp" src="./static/audio/exp1.mp3" controls="controls"></audio>
-  <audio class="exp" src="./static/audio/exp2.mp3" controls="controls"></audio>
-  <audio class="exp" src="./static/audio/exp2.mp3" controls="controls"></audio>
-  <audio class="exp" src="./static/audio/exp2.mp3" controls="controls"></audio>
-  <audio class="exp" src="./static/audio/exp3.mp3" controls="controls"></audio>
-  <audio class="exp" src="./static/audio/exp3.mp3" controls="controls"></audio>
-  <audio class="exp" src="./static/audio/exp3.mp3" controls="controls"></audio>
-  <audio class="exp" src="./static/audio/exp4.mp3" controls="controls"></audio>
-  <audio class="exp" src="./static/audio/exp4.mp3" controls="controls"></audio>
-  <audio class="exp" src="./static/audio/exp4.mp3" controls="controls"></audio>
-  <audio class="exp" src="./static/audio/exp5.mp3" controls="controls"></audio>
-  <audio class="exp" src="./static/audio/exp5.mp3" controls="controls"></audio>
-  <audio class="exp" src="./static/audio/exp5.mp3" controls="controls"></audio>
-  <audio class="exp" src="./static/audio/exp6.mp3" controls="controls"></audio>
-  <audio class="exp" src="./static/audio/exp6.mp3" controls="controls"></audio>
-  <audio class="exp" src="./static/audio/exp6.mp3" controls="controls"></audio>
-  <audio class="exp" src="./static/audio/exp7.mp3" controls="controls"></audio>
-  <audio class="exp" src="./static/audio/exp7.mp3" controls="controls"></audio>
-  <audio class="exp" src="./static/audio/exp7.mp3" controls="controls"></audio>
-  <audio class="exp" src="./static/audio/exp8.mp3" controls="controls"></audio>
-  <audio class="exp" src="./static/audio/exp8.mp3" controls="controls"></audio>
-  <audio class="exp" src="./static/audio/exp8.mp3" controls="controls"></audio>
-  <audio class="launch" src="./static/audio/launch1.mp3" controls="controls"></audio>
-  <audio class="launch" src="./static/audio/launch1.mp3" controls="controls"></audio>
-  <audio class="launch" src="./static/audio/launch2.mp3" controls="controls"></audio>
-  <audio class="launch" src="./static/audio/launch2.mp3" controls="controls"></audio>
-  <audio class="launch" src="./static/audio/launch3.mp3" controls="controls"></audio>
-  <audio class="launch" src="./static/audio/launch3.mp3" controls="controls"></audio>
-  <audio class="launch" src="./static/audio/launch4.mp3" controls="controls"></audio>
-  <audio class="launch" src="./static/audio/launch4.mp3" controls="controls"></audio>
-  <audio class="launch" src="./static/audio/launch5.mp3" controls="controls"></audio>
-  <audio class="launch" src="./static/audio/launch5.mp3" controls="controls"></audio>
-</div>
-  <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script> -->
-  <script  src="./static/main.js?v=2020"></script>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Fireworks</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <meta name="format-detection" content="telephone=no" />
+        <style>
+            html:root {
+                /* prettier-ignore */
+                font-size: 50PX;
+                font-size: 13.33333333vw;
+            }
+            @media screen and (min-width: 750px) {
+                html:root {
+                    /* prettier-ignore */
+                    font-size: 100PX;
+                }
+            }
+            @media screen and (orientation: landscape) and (min-width: 750px) {
+                html:root {
+                    /* prettier-ignore */
+                    font-size: 75PX;
+                }
+            }
+            html,
+            body {
+                width: 100%;
+                height: 100%;
+                padding: 0;
+            }
 
-</body>
+            body {
+                font-size: 16px;
+                line-height: 1.5;
+                /* prettier-ignore */
+                max-width: 1200PX;
+                margin: 0 auto;
+                font-family: 'PingFang SC', 'Helvetica Neue', 'Helvetica', 'Microsoft YaHei', 'STHeitiSC-Light', 'Arial', 'hiragino sans gb', tahoma, sans-serif;
+            }
+            #canvas {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+            .jumbotron {
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
+            .sound-icon {
+                cursor: pointer;
+                width: 0.5rem;
+                height: 0.5rem;
+                position: absolute;
+                top: 0.5rem;
+                right: 0.5rem;
+            }
+            .sound-icon svg {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="jumbotron">
+            <canvas id="canvas"></canvas>
+            <i class="sound-icon" id="icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52">
+                    <path
+                        fill="#FFF"
+                        fill-rule="nonzero"
+                        d="M26 51.688C11.813 51.688.312 40.187.312 26S11.813.312 26 .312 51.688 11.813 51.688 26 40.187 51.688 26 51.688zm0-1.376c13.427 0 24.313-10.885 24.313-24.312C50.313 12.573 39.427 1.687 26 1.687S1.687 12.573 1.687 26 12.573 50.313 26 50.313zm-4.167-31.256l5.556-4.167V37.11l-5.556-4.167h-5.555V19.056h5.555zm8.406 3.158l1.035-.976c1.419.973 2.358 2.75 2.358 4.762 0 2.012-.94 3.79-2.358 4.762l-1.035-.976c1.183-.66 2.018-2.097 2.018-3.786 0-1.69-.835-3.126-2.018-3.786zm3.784-3.57l1.017-.96A10.394 10.394 0 0 1 39.188 26c0 3.398-1.629 6.416-4.148 8.316l-1.017-.96A9.023 9.023 0 0 0 37.813 26a9.023 9.023 0 0 0-3.79-7.357z"
+                    />
+                </svg>
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52">
+                    <path fill="#FFF" fill-rule="nonzero" d="M26 51.688C11.813 51.688.312 40.187.312 26S11.813.312 26 .312 51.688 11.813 51.688 26 40.187 51.688 26 51.688zm0-1.376c13.427 0 24.313-10.885 24.313-24.312C50.313 12.573 39.427 1.687 26 1.687S1.687 12.573 1.687 26 12.573 50.313 26 50.313zm-4.167-31.256l5.556-4.167V37.11l-5.556-4.167h-5.555V19.056h5.555zm11.771 6.919l-3.437-3.437.982-.982 3.437 3.437 3.437-3.437.983.982-3.438 3.437 3.438 3.437-.983.982-3.437-3.437-3.437 3.437-.982-.982 3.437-3.437z" />
+                </svg> -->
+            </i>
+        </div>
+
+        <div style="display: none;">
+            <audio class="exp" src="./static/audio/exp1.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp1.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp1.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp2.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp2.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp2.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp3.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp3.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp3.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp4.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp4.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp4.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp5.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp5.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp5.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp6.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp6.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp6.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp7.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp7.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp7.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp8.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp8.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp8.mp3" controls="controls"></audio>
+            <audio class="launch" src="./static/audio/launch1.mp3" controls="controls"></audio>
+            <audio class="launch" src="./static/audio/launch1.mp3" controls="controls"></audio>
+            <audio class="launch" src="./static/audio/launch2.mp3" controls="controls"></audio>
+            <audio class="launch" src="./static/audio/launch2.mp3" controls="controls"></audio>
+            <audio class="launch" src="./static/audio/launch3.mp3" controls="controls"></audio>
+            <audio class="launch" src="./static/audio/launch3.mp3" controls="controls"></audio>
+            <audio class="launch" src="./static/audio/launch4.mp3" controls="controls"></audio>
+            <audio class="launch" src="./static/audio/launch4.mp3" controls="controls"></audio>
+            <audio class="launch" src="./static/audio/launch5.mp3" controls="controls"></audio>
+            <audio class="launch" src="./static/audio/launch5.mp3" controls="controls"></audio>
+        </div>
+        <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script> -->
+        <script src="./static/main.js?v=2020"></script>
+    </body>
 </html>

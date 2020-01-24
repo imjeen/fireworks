@@ -8,37 +8,6 @@ window.addEventListener('DOMContentLoaded', function() {
     canvas.width = document.documentElement.offsetWidth;
     canvas.height = document.documentElement.offsetHeight;
 
-    window.addEventListener('resize', function() {
-        canvas.width = document.documentElement.offsetWidth;
-        canvas.height = document.documentElement.offsetHeight;
-        ctx.fillStyle = '#000003';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        center = { x: canvas.width / 2, y: canvas.height / 2 };
-    });
-
-    // fix weChat
-    if (window.WeixinJSBridge) {
-        window.WeixinJSBridge.invoke('getNetworkType', {}, () => {
-            update();
-        });
-    } else if (/MicroMessenger/gi.test(navigator.userAgent)) {
-        document.addEventListener('WeixinJSBridgeReady', () => {
-            if (window.WeixinJSBridge) {
-                WeixinJSBridge.invoke('getNetworkType', {}, e => {
-                    this.onPlay();
-                });
-            } else {
-                update();
-            }
-        });
-    }
-
-    document.querySelector('#icon').addEventListener('click', function() {
-        document.querySelectorAll('audio.exp, audio.launch').forEach(function($item) {
-            $item.muted = false;
-        });
-    });
-
     var listFire = [];
     var listFirework = [];
     var listText = [];
