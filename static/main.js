@@ -1,4 +1,5 @@
 window.addEventListener('DOMContentLoaded', function() {
+    console.log('DOMContentLoaded');
     const canvas = document.getElementById('canvas'),
         ctx = canvas.getContext('2d');
 
@@ -16,24 +17,7 @@ window.addEventListener('DOMContentLoaded', function() {
         center = { x: canvas.width / 2, y: canvas.height / 2 };
     });
 
-    // fix weChat
-    if (window.WeixinJSBridge) {
-        window.WeixinJSBridge.invoke('getNetworkType', {}, () => {
-            update();
-        });
-    } else if (/MicroMessenger/gi.test(navigator.userAgent)) {
-        document.addEventListener('WeixinJSBridgeReady', () => {
-            if (window.WeixinJSBridge) {
-                WeixinJSBridge.invoke('getNetworkType', {}, e => {
-                    this.onPlay();
-                });
-            } else {
-                update();
-            }
-        });
-    }
-
-    document.querySelector('#icon').addEventListener('click', function() {
+    document.getElementById('icon').addEventListener('click', function() {
         document.querySelectorAll('audio.exp, audio.launch').forEach(function($item) {
             $item.muted = false;
         });
@@ -770,5 +754,43 @@ window.addEventListener('DOMContentLoaded', function() {
             ctx.fillStyle = text.fill;
             ctx.fillRect(text.x - text.size, text.y - text.size, text.size * 2, text.size * 2);
         }
+    }
+});
+
+window.addEventListener('load', function(){
+    console.log('load');
+    let $icon = document.getElementById('icon');
+    // $icon.style.display = 'block';
+    function triggerSound(){
+        console.log('trigger');
+         // $icon.click();
+        $icon.dispatchEvent(
+            new MouseEvent("click", {
+              view: window,
+              bubbles: true,
+              cancelable: true
+            })
+         );
+    }
+    document.body.onclick = function(){
+        triggerSound();
+    };
+    // fix weChat
+    if (window.WeixinJSBridge) {
+        window.WeixinJSBridge.invoke('getNetworkType', {}, () => {
+            triggerSound();
+        });
+    } else if (/MicroMessenger/gi.test(navigator.userAgent)) {
+        document.addEventListener('WeixinJSBridgeReady', () => {
+            if (window.WeixinJSBridge) {
+                WeixinJSBridge.invoke('getNetworkType', {}, e => {
+                   triggerSound();
+                });
+            } else {
+                   triggerSound();
+            }
+        });
+    }else{
+        // triggerSound();
     }
 });

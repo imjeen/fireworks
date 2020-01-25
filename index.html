@@ -35,7 +35,7 @@
                 font-size: 16px;
                 line-height: 1.5;
                 /* prettier-ignore */
-                max-width: 1200PX;
+                /*max-width: 1200PX;*/
                 margin: 0 auto;
                 font-family: 'PingFang SC', 'Helvetica Neue', 'Helvetica', 'Microsoft YaHei', 'STHeitiSC-Light', 'Arial', 'hiragino sans gb', tahoma, sans-serif;
             }
@@ -63,61 +63,69 @@
                 height: 100%;
             }
         </style>
+        <script>
+        ;(function(){
+            function addScript (src) {
+                var script = document.createElement('script');
+                script.src = src;
+                script.async = false;
+                script.defer = false;
+                document.write(script.outerHTML);
+            }
+            /(TEST=1)/.test(location.search) && addScript('//h5.meitu.com/js/console.min.js');
+        }());
+    </script>
     </head>
     <body>
         <div class="jumbotron">
             <canvas id="canvas"></canvas>
-            <i class="sound-icon" id="icon">
-                <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52">
-                    <path
-                        fill="#FFF"
-                        fill-rule="nonzero"
-                        d="M26 51.688C11.813 51.688.312 40.187.312 26S11.813.312 26 .312 51.688 11.813 51.688 26 40.187 51.688 26 51.688zm0-1.376c13.427 0 24.313-10.885 24.313-24.312C50.313 12.573 39.427 1.687 26 1.687S1.687 12.573 1.687 26 12.573 50.313 26 50.313zm-4.167-31.256l5.556-4.167V37.11l-5.556-4.167h-5.555V19.056h5.555zm8.406 3.158l1.035-.976c1.419.973 2.358 2.75 2.358 4.762 0 2.012-.94 3.79-2.358 4.762l-1.035-.976c1.183-.66 2.018-2.097 2.018-3.786 0-1.69-.835-3.126-2.018-3.786zm3.784-3.57l1.017-.96A10.394 10.394 0 0 1 39.188 26c0 3.398-1.629 6.416-4.148 8.316l-1.017-.96A9.023 9.023 0 0 0 37.813 26a9.023 9.023 0 0 0-3.79-7.357z"
-                    />
+            <i class="sound-icon" id="icon" style="display: none;">>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 782 720">
+                    <g fill="#fff">
+                        <path d="M456.15,719.53h0a76.38,76.38,0,0,1-44-13.94l-226-159.21a31.68,31.68,0,0,0-18.62-1.86H87.5C41,544.52,0,494.25,0,451.42V265.24c0-46.55,44.68-74.47,87.5-74.47H162a52.15,52.15,0,0,0,24.21-11.17L431.44,5.73a25.8,25.8,0,0,1,10.23-4.34,82.83,82.83,0,0,1,98.26,83.26v551.1a83.78,83.78,0,0,1-83.78,83.78m-7.45-37.23a46.54,46.54,0,0,0,55.85-46.55V84.65a48.6,48.6,0,0,0-28.81-43.37,37.84,37.84,0,0,0-37.16,4.06L206.66,211.25a81.92,81.92,0,0,1-46.54,18.62H85.65c-24.2,0-50.27,13-50.27,37.23V453.29c0,26.07,26.07,55.85,50.27,55.85h81.92a61.44,61.44,0,0,1,41,9.31ZM692.6,559.41l-26.07-26.06c104.26-104.26,104.26-243.9,0-348.16l26.07-26.07c119.15,119.16,119.15,281.14,0,400.29"/>
+                        <path d="M644.19,466.32l-26.06-26.06a106.13,106.13,0,0,0,0-160.12l26.06-26.07a143.36,143.36,0,0,1,0,212.25"/>
+                    </g>
                 </svg>
-                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="52" height="52" viewBox="0 0 52 52">
-                    <path fill="#FFF" fill-rule="nonzero" d="M26 51.688C11.813 51.688.312 40.187.312 26S11.813.312 26 .312 51.688 11.813 51.688 26 40.187 51.688 26 51.688zm0-1.376c13.427 0 24.313-10.885 24.313-24.312C50.313 12.573 39.427 1.687 26 1.687S1.687 12.573 1.687 26 12.573 50.313 26 50.313zm-4.167-31.256l5.556-4.167V37.11l-5.556-4.167h-5.555V19.056h5.555zm11.771 6.919l-3.437-3.437.982-.982 3.437 3.437 3.437-3.437.983.982-3.438 3.437 3.438 3.437-.983.982-3.437-3.437-3.437 3.437-.982-.982 3.437-3.437z" />
-                </svg> -->
             </i>
         </div>
 
         <div style="display: none;">
-            <audio class="exp" src="./static/audio/exp1.mp3" controls="controls"></audio>
-            <audio class="exp" src="./static/audio/exp1.mp3" controls="controls"></audio>
-            <audio class="exp" src="./static/audio/exp1.mp3" controls="controls"></audio>
-            <audio class="exp" src="./static/audio/exp2.mp3" controls="controls"></audio>
-            <audio class="exp" src="./static/audio/exp2.mp3" controls="controls"></audio>
-            <audio class="exp" src="./static/audio/exp2.mp3" controls="controls"></audio>
-            <audio class="exp" src="./static/audio/exp3.mp3" controls="controls"></audio>
-            <audio class="exp" src="./static/audio/exp3.mp3" controls="controls"></audio>
-            <audio class="exp" src="./static/audio/exp3.mp3" controls="controls"></audio>
-            <audio class="exp" src="./static/audio/exp4.mp3" controls="controls"></audio>
-            <audio class="exp" src="./static/audio/exp4.mp3" controls="controls"></audio>
-            <audio class="exp" src="./static/audio/exp4.mp3" controls="controls"></audio>
-            <audio class="exp" src="./static/audio/exp5.mp3" controls="controls"></audio>
-            <audio class="exp" src="./static/audio/exp5.mp3" controls="controls"></audio>
-            <audio class="exp" src="./static/audio/exp5.mp3" controls="controls"></audio>
-            <audio class="exp" src="./static/audio/exp6.mp3" controls="controls"></audio>
-            <audio class="exp" src="./static/audio/exp6.mp3" controls="controls"></audio>
-            <audio class="exp" src="./static/audio/exp6.mp3" controls="controls"></audio>
-            <audio class="exp" src="./static/audio/exp7.mp3" controls="controls"></audio>
-            <audio class="exp" src="./static/audio/exp7.mp3" controls="controls"></audio>
-            <audio class="exp" src="./static/audio/exp7.mp3" controls="controls"></audio>
-            <audio class="exp" src="./static/audio/exp8.mp3" controls="controls"></audio>
-            <audio class="exp" src="./static/audio/exp8.mp3" controls="controls"></audio>
-            <audio class="exp" src="./static/audio/exp8.mp3" controls="controls"></audio>
-            <audio class="launch" src="./static/audio/launch1.mp3" controls="controls"></audio>
-            <audio class="launch" src="./static/audio/launch1.mp3" controls="controls"></audio>
-            <audio class="launch" src="./static/audio/launch2.mp3" controls="controls"></audio>
-            <audio class="launch" src="./static/audio/launch2.mp3" controls="controls"></audio>
-            <audio class="launch" src="./static/audio/launch3.mp3" controls="controls"></audio>
-            <audio class="launch" src="./static/audio/launch3.mp3" controls="controls"></audio>
-            <audio class="launch" src="./static/audio/launch4.mp3" controls="controls"></audio>
-            <audio class="launch" src="./static/audio/launch4.mp3" controls="controls"></audio>
-            <audio class="launch" src="./static/audio/launch5.mp3" controls="controls"></audio>
-            <audio class="launch" src="./static/audio/launch5.mp3" controls="controls"></audio>
+            <audio class="exp" src="./static/audio/exp1.mp3" muted="true" preload="auto"></audio>
+            <audio class="exp" src="./static/audio/exp1.mp3" muted="true" preload="auto"></audio>
+            <audio class="exp" src="./static/audio/exp1.mp3" muted="true" preload="auto"></audio>
+            <audio class="exp" src="./static/audio/exp2.mp3" muted="true" preload="auto"></audio>
+            <audio class="exp" src="./static/audio/exp2.mp3" muted="true" preload="auto"></audio>
+            <audio class="exp" src="./static/audio/exp2.mp3" muted="true" preload="auto"></audio>
+            <audio class="exp" src="./static/audio/exp3.mp3" muted="true" preload="auto"></audio>
+            <audio class="exp" src="./static/audio/exp3.mp3" muted="true" preload="auto"></audio>
+            <audio class="exp" src="./static/audio/exp3.mp3" muted="true" preload="auto"></audio>
+            <audio class="exp" src="./static/audio/exp4.mp3" muted="true" preload="auto"></audio>
+            <audio class="exp" src="./static/audio/exp4.mp3" muted="true" preload="auto"></audio>
+            <audio class="exp" src="./static/audio/exp4.mp3" muted="true" preload="auto"></audio>
+            <audio class="exp" src="./static/audio/exp5.mp3" muted="true" preload="auto"></audio>
+            <audio class="exp" src="./static/audio/exp5.mp3" muted="true" preload="auto"></audio>
+            <audio class="exp" src="./static/audio/exp5.mp3" muted="true" preload="auto"></audio>
+            <audio class="exp" src="./static/audio/exp6.mp3" muted="true" preload="auto"></audio>
+            <audio class="exp" src="./static/audio/exp6.mp3" muted="true" preload="auto"></audio>
+            <audio class="exp" src="./static/audio/exp6.mp3" muted="true" preload="auto"></audio>
+            <audio class="exp" src="./static/audio/exp7.mp3" muted="true" preload="auto"></audio>
+            <audio class="exp" src="./static/audio/exp7.mp3" muted="true" preload="auto"></audio>
+            <audio class="exp" src="./static/audio/exp7.mp3" muted="true" preload="auto"></audio>
+            <audio class="exp" src="./static/audio/exp8.mp3" muted="true" preload="auto"></audio>
+            <audio class="exp" src="./static/audio/exp8.mp3" muted="true" preload="auto"></audio>
+            <audio class="exp" src="./static/audio/exp8.mp3" muted="true" preload="auto"></audio>
+            <audio class="launch" src="./static/audio/launch1.mp3" muted="true" preload="auto"></audio>
+            <audio class="launch" src="./static/audio/launch1.mp3" muted="true" preload="auto"></audio>
+            <audio class="launch" src="./static/audio/launch2.mp3" muted="true" preload="auto"></audio>
+            <audio class="launch" src="./static/audio/launch2.mp3" muted="true" preload="auto"></audio>
+            <audio class="launch" src="./static/audio/launch3.mp3" muted="true" preload="auto"></audio>
+            <audio class="launch" src="./static/audio/launch3.mp3" muted="true" preload="auto"></audio>
+            <audio class="launch" src="./static/audio/launch4.mp3" muted="true" preload="auto"></audio>
+            <audio class="launch" src="./static/audio/launch4.mp3" muted="true" preload="auto"></audio>
+            <audio class="launch" src="./static/audio/launch5.mp3" muted="true" preload="auto"></audio>
+            <audio class="launch" src="./static/audio/launch5.mp3" muted="true" preload="auto"></audio>
         </div>
         <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script> -->
-        <script src="./static/main.js?v=2020"></script>
+        <script src="./static/main.js?v=20200125_01"></script>
     </body>
 </html>
